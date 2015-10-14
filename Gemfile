@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'materialize-sass'
+gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'bcrypt'
 
