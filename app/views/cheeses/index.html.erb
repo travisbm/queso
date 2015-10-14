@@ -14,9 +14,9 @@
     <% @cheeses.each do |cheese| %>
       <tr>
         <td><%= cheese.name %></td>
-        <td><%= link_to 'Show', cheese %></td>
+        <td><%= button_to 'Show', cheese_path(cheese.id), :method => 'get', :class => 'btn btn-default' %></td>
         <% if logged_in? %>
-         <td><%= link_to "Like" %></td>
+         <td class='btn btn-default' id='cheeseLike'>Like</td>
         <% end %>
       </tr>
     <% end %>
