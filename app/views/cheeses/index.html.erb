@@ -16,7 +16,10 @@
         <td><%= cheese.name %></td>
         <td><%= link_to 'Show', cheese %></td>
         <% if logged_in? %>
-         <td><%= link_to 'Like' %></td>
+         <td><%= link_to "Like",
+            :controller => "user",
+            :action => "like",
+            :cheese => cheese.attributes %></td>
         <% end %>
       </tr>
     <% end %>

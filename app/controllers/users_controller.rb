@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
 
+  def like
+    @user = current_user
+    @user.cheeses.create()
+  end
+
   # GET /users
   # GET /users.json
   def index
