@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Cheeses</h1>
+<h1 id='cheese'>Listing Cheeses</h1>
 
 <table>
   <thead>
@@ -16,12 +16,14 @@
         <td><%= cheese.name %></td>
         <td><%= button_to 'Show', cheese_path(cheese.id), :method => 'get', :class => 'btn btn-default' %></td>
         <% if logged_in? %>
-         <td class='btn btn-default' id='cheeseLike'>Like</td>
+         <td><%= button_to 'Like', favorites_path, remote: true, :class => 'btn btn-default', :id => 'cheeseLike' %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= hidden_field(:cheese_id, :user_id, :class => 'likeInfo') %>
 
 <br>
 

@@ -5,13 +5,12 @@ $('#cheeseLike').on('click', function () {
     method: "POST",
     data: {
       favorite: {
-        user_id: $('#tweet_message').val(),
-        cheese_id:
+        user_id: $('#favorite_room_id').val(),
+        cheese_id: $('#favorite_user_id').val(),
       }
     },
     success: function (response) {
-      $('#tweet_message').val('');
-      $('#notice').append('<h4>Cheese Liked!</h4>');
+      $('#cheese').append('<h4>Cheese Liked!</h4>');
     }
   });
 });

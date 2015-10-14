@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'responders', '~> 2.0'
+
 gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'bcrypt'
