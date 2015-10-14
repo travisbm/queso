@@ -1,5 +1,6 @@
 class CheesesController < ApplicationController
   before_action :set_cheese, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :create, :update, :destroy]
 
   # GET /cheeses
   # GET /cheeses.json
@@ -62,6 +63,14 @@ class CheesesController < ApplicationController
   end
 
   private
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_cheese
       @cheese = Cheese.find(params[:id])
