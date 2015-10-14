@@ -4,7 +4,10 @@ class UsersController < ApplicationController
 
   def like
     @user = current_user
-    @user.cheeses.create()
+    @user.favorites.create({
+      user_id: @user.id,
+      cheese_id: 1
+      })
   end
 
   # GET /users

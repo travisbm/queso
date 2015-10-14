@@ -14,7 +14,5 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-  post '/users' => 'users#like'
-
   root to: 'cheeses#index'
 end
