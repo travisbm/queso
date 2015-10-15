@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :favorites
   resources :cheeses
-  resources :users
+  resources :users do
+    resources :favorites
+  end
 
   # these routes are for showing users a login form, logging them in, and logging them out.
   get '/login' => 'sessions#new'

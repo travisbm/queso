@@ -1,11 +1,10 @@
 class FavoritesController < ApplicationController
   before_action :set_favorite, only: [:show, :edit, :update, :destroy]
-  respond_to :html, :js
 
   # GET /favorites
   # GET /favorites.json
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.where(:user_id => params[:user_id])
   end
 
   # GET /favorites/1
