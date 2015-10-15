@@ -5,7 +5,7 @@ $('#cheeseLike').on('click', function () {
     method: "POST",
     data: {
       favorite: {
-        user_id: $('#favorite_room_id').val(),
+        user_id: $('#favorite_cheese_id').val(),
         cheese_id: $('#favorite_user_id').val(),
       }
     },

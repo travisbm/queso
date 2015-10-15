@@ -13,17 +13,16 @@
   <tbody>
     <% @cheeses.each do |cheese| %>
       <tr>
+        <td><img src="http://www.automationheroes.com/wp-content/uploads/2013/11/tumblr_static_cheese_205_1362800142.jpg" height="25" width="25"></td>
         <td><%= cheese.name %></td>
         <td><%= button_to 'Show', cheese_path(cheese.id), :method => 'get', :class => 'btn btn-default' %></td>
         <% if logged_in? %>
-         <td><%= button_to 'Like', favorites_path, remote: true, :class => 'btn btn-default', :id => 'cheeseLike' %></td>
+         <td><%= button_to 'Like', favorites_path(:favorite => {:user_id => current_user.id, :cheese_id => cheese.id}), :class => 'btn btn-default' %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= hidden_field(:cheese_id, :user_id, :class => 'likeInfo') %>
 
 <br>
 
