@@ -25,6 +25,7 @@ class FavoritesController < ApplicationController
   # POST /favorites.json
   def create
     @favorite = Favorite.new(favorite_params)
+    FavoriteMailer.favorite_email(current_user).deliver_later
 
     respond_to do |format|
       if @favorite.save
